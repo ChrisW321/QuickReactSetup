@@ -2,23 +2,24 @@ module.exports = {
     context: __dirname + '/client',
     entry: './app.jsx',
     module: {
-        rules: [
-            {
-                test: /\jsx?$/,
-                exclude: '/node_modules/',
-                loader: 'babel-loader',
-                query: {
-                    presets: ['env', 'react', 'es2015']
-                },
-            },
-            {
-                test: /\.css/,
-                loader: ['style-loader', 'css-loader']
-            }
-        ]
+      rules: [
+        {
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader',
+          query: {
+            presets: ['react', 'es2015', 'env']
+          },
+        },      
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader']
+        }
+      ],
+      
     },
     output: {
-        path: __dirname + '/public',
-        filename: 'bundle.js'
+      path: __dirname + '/public',
+      filename: 'bundle.js',
     }
-};
+  };
