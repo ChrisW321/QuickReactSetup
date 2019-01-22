@@ -1,4 +1,5 @@
 import React from 'react';
+import Axios from 'axios';
 
 export default class Main extends React.Component {
     constructor(props) {
@@ -6,6 +7,12 @@ export default class Main extends React.Component {
         this.state = {
 
         }
+    }
+
+    componentDidMount() {
+        Axios.get('/test').then(({data}) => {
+            console.log(data);
+        });
     }
 
     render() {
